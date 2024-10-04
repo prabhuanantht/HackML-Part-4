@@ -23,10 +23,10 @@ elif selection == "ClassMent Explorer Lab":
     if 'roadmap_content' not in st.session_state:
         st.session_state.roadmap_content = ""
 
-    dom = st.selectbox("Enter the domain: ", ["Computer Science", "Electronics", "Automobiles", "Health & Medicine", "Digital Marketing", "Business", "E-Commerce", "Others"],None)
+    dom = st.selectbox("Enter the domain: ", ["Computer Science", "Others"],None)
 
     if dom == "Computer Science":
-        roadmap = st.selectbox("Choose a roadmap", ["Front-End", "Data Analyst", "AI and Data Scientist", "Python Developer", "Others"], None)
+        roadmap = st.selectbox("Choose a roadmap", ["Front-End Developer", "Backend Developer", "Data Analyst", "AI and Data Scientist", "Machine Learning Engineer", "Python Developer", "Cloud Engineer", "Others"], None)
 
         if roadmap=="Others":
             printai1.other()
