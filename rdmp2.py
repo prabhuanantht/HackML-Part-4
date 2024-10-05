@@ -12,13 +12,13 @@ pages = ["Home", "Explorer Lab", "About Us", "Contact"]
 selection = st.sidebar.radio("Go to", pages)
 
 # Display content based on the selection
-if selection == "ClassMent Home":
+if selection == "Home":
     st.title("Welcome to the Home Page")
     st.write("This is the home page of the Streamlit app.")
 
 
-elif selection == "ClassMent Explorer Lab":
-    st.title("Welcome to ClassMent Explorer Lab")
+elif selection == "Explorer Lab":
+    st.title("Welcome to Explorer Lab")
 
     if 'roadmap_content' not in st.session_state:
         st.session_state.roadmap_content = ""
