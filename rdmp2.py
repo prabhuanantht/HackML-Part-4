@@ -6,7 +6,7 @@ import printai1
 st.sidebar.title("Navigation")
 
 # Define the different pages
-pages = ["ClassMent Home", "ClassMent Explorer Lab", "About Us", "Contact"]
+pages = ["Home", "Explorer Lab", "About Us", "Contact"]
 
 # Create the navigation menu in the sidebar
 selection = st.sidebar.radio("Go to", pages)
