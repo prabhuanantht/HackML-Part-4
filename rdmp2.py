@@ -2,50 +2,27 @@ import streamlit as st
 import ai
 import printai1
 
-# Set up the sidebar navigation
-st.sidebar.title("Navigation")
+st.title("Career Roadmap Generator")
 
-# Define the different pages
-pages = ["Home", "Explorer Lab", "About Us", "Contact"]
+if 'roadmap_content' not in st.session_state:
+    st.session_state.roadmap_content = ""
 
-# Create the navigation menu in the sidebar
-selection = st.sidebar.radio("Go to", pages)
+dom = st.selectbox("Enter the domain: ", ["Computer Science", "Others"],None)
 
-# Display content based on the selection
-if selection == "Home":
-    st.title("Welcome to the Home Page")
-    st.write("This is the home page of the Streamlit app.")
+if dom == "Computer Science":
+    roadmap = st.selectbox("Choose a roadmap", ["Front-End Developer", "Backend Developer", "Data Analyst", "AI and Data Scientist", "Machine Learning Engineer", "Python Developer", "Cloud Engineer", "Others"], None)
 
-
-elif selection == "Explorer Lab":
-    st.title("Welcome to Explorer Lab")
-
-    if 'roadmap_content' not in st.session_state:
-        st.session_state.roadmap_content = ""
-
-    dom = st.selectbox("Enter the domain: ", ["Computer Science", "Others"],None)
-
-    if dom == "Computer Science":
-        roadmap = st.selectbox("Choose a roadmap", ["Front-End Developer", "Backend Developer", "Data Analyst", "AI and Data Scientist", "Machine Learning Engineer", "Python Developer", "Cloud Engineer", "Others"], None)
-
-        if roadmap=="Others":
-            printai1.other()
-
-        elif(roadmap) :
-            csv = ai.generate_ai_for_headings(roadmap)
-            extract_csv = ai.extract_useful_content(csv)
-            printai1.display_keywords_as_buttons(extract_csv)
-
-
-    elif(dom=="Others"):
+    if roadmap=="Others":
         printai1.other()
 
-elif selection == "About Us":
-    st.title("About Us")
-    st.write("This page contains information about the application.")
-elif selection == "Contact":
-    st.title("Contact Us")
-    st.write("This page contains contact information.")
+    elif(roadmap) :
+        csv = ai.generate_ai_for_headings(roadmap)
+        extract_csv = ai.extract_useful_content(csv)
+        printai1.display_keywords_as_buttons(extract_csv)
+
+
+elif(dom=="Others"):
+    printai1.other()
 
 
 
